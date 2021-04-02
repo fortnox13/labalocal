@@ -31,4 +31,8 @@ variable "instance-type" {
   type    = string
   default = "t2.micro"
 }
-
+#Add the variable webserver-port to variables.tf
+variable "webserver-port" {
+  type    = number
+  default = 80
+}
