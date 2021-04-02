@@ -46,9 +46,9 @@ resource "aws_instance" "jenkins-master" {
   depends_on = [aws_main_route_table_association.set-master-default-rt-assoc]
 
 
-#The code below is ONLY the provisioner block which needs to be
-#inserted inside the resource block for Jenkins EC2 master Terraform
-#Jenkins Master Provisioner:
+  #The code below is ONLY the provisioner block which needs to be
+  #inserted inside the resource block for Jenkins EC2 master Terraform
+  #Jenkins Master Provisioner:
 
   provisioner "local-exec" {
     command = <<EOF
@@ -75,8 +75,8 @@ resource "aws_instance" "jenkins-worker-oregon" {
   }
   depends_on = [aws_main_route_table_association.set-worker-default-rt-assoc, aws_instance.jenkins-master]
   #The code below is ONLY the provisioner block which needs to be
-#inserted inside the resource block for Jenkins EC2 master Terraform
-#Jenkins Master Provisioner:
+  #inserted inside the resource block for Jenkins EC2 master Terraform
+  #Jenkins Master Provisioner:
 
   provisioner "local-exec" {
     command = <<EOF
