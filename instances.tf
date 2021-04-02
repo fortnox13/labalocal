@@ -44,18 +44,9 @@ resource "aws_instance" "jenkins-master" {
   }
 
   depends_on = [aws_main_route_table_association.set-master-default-rt-assoc]
-<<<<<<< HEAD
-
-
-  #The code below is ONLY the provisioner block which needs to be
-  #inserted inside the resource block for Jenkins EC2 master Terraform
-  #Jenkins Master Provisioner:
-
-=======
 #The code below is ONLY the provisioner block which needs to be
 #inserted inside the resource block for Jenkins EC2 master Terraform
 #Jenkins Master Provisioner:
->>>>>>> 001ea10fd1258979700f0307aadb8bb3b1f55305
   provisioner "local-exec" {
     command = <<EOF
 aws --profile ${var.profile} ec2 wait instance-status-ok --region ${var.region-master} --instance-ids ${self.id}
@@ -81,8 +72,8 @@ resource "aws_instance" "jenkins-worker-oregon" {
   }
   depends_on = [aws_main_route_table_association.set-worker-default-rt-assoc, aws_instance.jenkins-master]
   #The code below is ONLY the provisioner block which needs to be
-  #inserted inside the resource block for Jenkins EC2 master Terraform
-  #Jenkins Master Provisioner:
+#inserted inside the resource block for Jenkins EC2 master Terraform
+#Jenkins Master Provisioner:
 
   provisioner "local-exec" {
     command = <<EOF
